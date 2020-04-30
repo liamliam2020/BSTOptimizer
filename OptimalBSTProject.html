@@ -1,0 +1,62 @@
+<HTML>
+<BODY>
+
+<HR><CENTER><H3>Optimal Binary Search Trees</H3></CENTER>
+
+<P><HR><CENTER><H3>Introduction</H3></CENTER>
+
+Even if a <EM>Binary Search Tree</EM> (BST) is balanced, it will
+perform poorly in practice if clients rarely retrieve the root key,
+but frequently need to retrieve keys in distant leaves.  The
+<EM>Cost</EM> of looking up a key in a BST is the product of its
+frequency times the number of comparisons required to find it.  The
+<EM>Weighted Internal Path Length</EM> of a BST is the sum of the
+costs of the keys.  An <EM>Optimal BST</EM> has the lowest weighted
+internal path length and will be the most efficient over time.
+
+<P><HR><CENTER><H3>Requirements</H3></CENTER>
+
+In this assignment, you will implement the top-down dynamic
+programming algorithm that was described in class to find an optimal
+binary search tree.  You must implement two classes.  Your
+<TT>BinaryTree</TT> class will implement a binary tree data structure
+with the following methods:
+<UL>
+  <LI><TT>public BinaryTree()</TT> is a constructor.
+  <LI><TT>public int cost</TT> is its weighted internal path length.
+  <LI><TT>public String toString()</TT> is for printing.
+</UL>
+You should print your binary trees in a readable way.
+Your <TT>BSTOptimizer</TT> class must implement the methods:
+<UL>
+  <LI><TT>public BSTOptimizer()</TT> is a constructor.
+  <LI><TT>public boolean MEMOIZE</TT> turns memoization on or off.
+  <LI><TT>public int CALLS</TT> counts recursive calls.
+  <LI><TT>public void addKey(String key, int frequency)</TT> adds a key.
+  <LI><TT>public BinaryTree optimize()</TT> returns an optimal BST.
+</UL>
+The keys might not arrive in sorted order, so you should do an initial
+sort before optimizing.  (You may use one of Java's sorting methods
+for this.)
+
+Your code must work with my test driver in the file
+<TT>TestBSTOptimizer.java</TT>.  In particular, your experiments
+should verify that the runtime is proportional to the cube of the
+number of keys (with memoization turned on).  See the file
+<TT>TestBSTOptimizerLog.txt</TT> for a log of the output of my
+implementation.
+
+<P><HR><CENTER><H3>Submission and Grading</H3></CENTER>
+
+Submit your work to the CourseWeb site for this course.  You will be
+graded as follows: 3 points if you implement a recursive method that
+computes the cost of an optimal BST, 6 points if you also add a memo
+to avoid recomputing overlapping subproblems, 9 points if you also
+build and print the optimized BST, and 10 points if you satisfy all of
+the requirements and document your program correctly (with
+a <TT>README</TT> file and comments in source files where necessary.
+
+<P>
+<HR>
+</BODY>
+</HTML>
